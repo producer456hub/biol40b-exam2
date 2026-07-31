@@ -43,6 +43,9 @@
       <label class="opt"><input type="checkbox" id="mode-quick" data-n="25">
         <span class="txt"><span class="lab">Cap the run at 25 questions</span>
         <span class="sub">Otherwise you get every question from the topics you selected.</span></span></label>
+      <label class="opt"><input type="checkbox" id="mode-hy">
+        <span class="txt"><span class="lab">★ Starred questions only</span>
+        <span class="sub">Narrow the selected topics to just the ones predicted to be on the exam.</span></span></label>
       <label class="opt"><input type="checkbox" id="mode-conf" checked>
         <span class="txt"><span class="lab">Rate my confidence before each answer is revealed</span>
         <span class="sub">Finds the misses you were sure about — the highest-value corrections. Adds one tap per question.</span></span></label>
@@ -133,7 +136,7 @@ const DRILL = [
   ...EXAM_B.map(q => ({...q, n:"B"+q.n})),
   ...HISTO .map(q => ({...q, n:"H"+q.n})),
 ];
-EXAM_CFG = { bank: DRILL, form:"", allowTopics:true };
+EXAM_CFG = { bank: DRILL, form:"", allowTopics:true, runKey:"drill" };
 
 /* topic checkboxes, with a live count of what's in each */
 (() => {

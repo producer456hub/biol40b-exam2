@@ -158,7 +158,7 @@ const LIKELY = [
   ...EXAM_B.filter(q => q.hy).map(q => ({...q, n:"B"+q.n})),
   ...HISTO .filter(q => q.hy).map(q => ({...q, n:"H"+q.n})),
 ];
-EXAM_CFG = { bank: LIKELY, form:"" };
+EXAM_CFG = { bank: LIKELY, form:"", runKey:"likely" };
 document.getElementById("hy-count").textContent = LIKELY.length;
 </script>
 <script src="srs.js"></script>

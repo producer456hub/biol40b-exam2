@@ -41,7 +41,7 @@
   function saveRun(stats){
     try {
       const runs = JSON.parse(localStorage.getItem("b2-runs")) || {};
-      runs[FORM || "drill"] = stats;
+      runs[cfg.runKey || FORM || "drill"] = stats;
       localStorage.setItem("b2-runs", JSON.stringify(runs));
     } catch {}
   }
@@ -49,7 +49,7 @@
   /* ---------------- state ---------------- */
   let pool=[], idx=0, retry=[], round=1, totalItems=0, firstTry=0, answeredFirst=new Set();
   let missed=[], missedKeys=new Set(), doneMissed=[];
-  let locked=false, order=[], pending=null, useConf=true;
+  let locked=false, order=[], pending=null, useConf=true, revealed=false;
   let byTopic={}, confLog=[];
 
   function show(which){ for(const id of ["start","exam","done"]) { const el=$(id); if(el) el.classList.toggle("hidden", id!==which); } }
@@ -62,8 +62,9 @@
   function buildPool(){
     let all = BANK.slice();
     if (cfg.allowTopics){
-      const t = selectedTopics();
-      if (t.length) all = all.filter(q => t.includes(q.topic));
+      // No topic ticked means "nothing", not "everything" — return an empty pool so the
+      // caller shows the warning instead of quietly serving all 180 questions.
+      all = all.filter(q => selectedTopics().includes(q.topic));
     }
     const hyOnly = $("mode-hy");
     if (hyOnly && hyOnly.checked) all = all.filter(q => q.hy);
@@ -87,7 +88,7 @@
 
   /* ---------------- render ---------------- */
   function render(){
-    locked=false; pending=null;
+    locked=false; pending=null; revealed=false;
     const q = pool[idx];
     const T = (typeof TOPICS !== "undefined" && TOPICS[q.topic]) || {name:q.topic, color:"var(--accent)"};
     const card = $("exam");
@@ -142,6 +143,8 @@
   }
 
   function reveal(conf){
+    if (revealed) return;          // guard: a double-tap on a confidence button must not re-record
+    revealed = true;
     const cf = $("confbox"); if (cf) cf.classList.add("hidden");
     const pos = pending;
     const q = pool[idx];

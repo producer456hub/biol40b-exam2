@@ -88,10 +88,12 @@ const SRS = (() => {
         r.box = 0;
         r.due = startOfToday() + DAY;
       } else if (r.day !== today){
-        // a genuine retrieval on a new day: one criterion credit, next gap
+        // A genuine retrieval on a new day: one criterion credit, then the next gap.
+        // Schedule from the CURRENT box before advancing it, so the very first correct
+        // answer earns the shortest gap (1 day) and the sequence really is 1 → 3 → 7 → 16.
         r.succ = (r.succ||0) + 1; r.day = today;
+        r.due = startOfToday() + gapDays(r.box || 0) * DAY;
         r.box = Math.min((r.box||0)+1, GAPS.length-1);
-        r.due = startOfToday() + gapDays(r.box) * DAY;
       } else {
         // already credited today; keep the existing due date
         r.due = r.due || (startOfToday() + gapDays(r.box) * DAY);
@@ -116,7 +118,7 @@ const SRS = (() => {
     const all = load();
     const now = Date.now();
     return pool
-      .filter(q => isDue(all[q.id !== undefined ? q.id : q.n], now))
+      .filter(q => isDue(all[q.n], now))
       .sort((x, y) => {
         const rx = all[x.n] || {}, ry = all[y.n] || {};
         if ((ry.cw||0) !== (rx.cw||0)) return (ry.cw||0) - (rx.cw||0);
