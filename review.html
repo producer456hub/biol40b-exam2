@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIOL 40B — Lecture Exam 2 · Spaced review</title>
+<meta name="description" content="The spaced-repetition queue for BIOL 40B Exam 2: expanding gaps sized to your exam date, three spaced correct retrievals before an item retires, and confident misses served first.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="kicker">BIOL 40B · Lecture Exam 2</span>
+      <h1>Spaced review</h1>
+    </div>
+    <button class="iconbtn" id="theme" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
+  </header>
+
+  <nav class="pagenav" aria-label="Sections">
+    <a href="index.html" class="pnav"><span class="ic">🏠</span> Hub</a>
+    <a href="exam-a.html" class="pnav"><span class="ic">📝</span> Exam A</a>
+    <a href="exam-b.html" class="pnav"><span class="ic">📄</span> Exam B</a>
+    <a href="likely.html" class="pnav"><span class="ic">★</span> Likely</a>
+    <a href="review.html" class="pnav on" aria-current="page"><span class="ic">🔁</span> Review</a>
+    <a href="drill.html" class="pnav"><span class="ic">🎯</span> Topic drill</a>
+    <a href="histology.html" class="pnav"><span class="ic">🔬</span> Histology</a>
+    <a href="objectives.html" class="pnav"><span class="ic">🧭</span> Objectives</a>
+    <a href="cram.html" class="pnav"><span class="ic">⚡</span> Cram</a>
+  </nav>
+
+  <!-- START -->
+  <section id="start" class="card pad">
+    <p class="hero-note">This is the part that actually makes it stick. Every question you answer anywhere in the
+      trainer gets a due date. This page serves only <b>what is due today</b>, and an item does not retire until you
+      have retrieved it correctly <b>on three different days</b> — the "successive relearning" pattern that beat
+      normal studying by more than a full letter grade on a real course exam.
+      <a href="method.html">The evidence behind each rule →</a></p>
+
+    <div class="srsgrid" id="srsgrid"></div>
+
+    <div class="examdate">
+      <label for="examdate">Your exam date</label>
+      <input type="date" id="examdate">
+      <span class="hint" id="datehint">Set this and the gaps compress automatically — a review gap should be roughly
+        20% of the time you still have to hold the material, and nothing is ever scheduled after the exam.</span>
+    </div>
+
+    <div id="queue-note"></div>
+
+    <div class="opts" id="opts">
+      <label class="opt"><input type="checkbox" id="mode-quick" data-n="25">
+        <span class="txt"><span class="lab">Cap this session at 25 questions</span>
+        <span class="sub">The queue is ordered worst-first, so a capped session still hits the important ones.</span></span></label>
+      <label class="opt"><input type="checkbox" id="mode-conf" checked>
+        <span class="txt"><span class="lab">Rate my confidence before each answer is revealed</span>
+        <span class="sub">Finds the misses you were sure about — the highest-value corrections. Adds one tap per question.</span></span></label>
+    </div>
+
+    <div class="hynote"><span>🔀</span><span><b>The queue is deliberately mixed.</b> Blood questions sit next to
+      respiratory ones on purpose. Interleaving feels worse while you practise and tests better afterwards — in one
+      study it halved practice-session accuracy and then doubled next-day scores.</span></div>
+
+    <button class="btn btn-primary btn-block" id="startBtn" style="margin-top:18px">Start today's review</button>
+  </section>
+
+  <!-- EXAM -->
+  <section id="exam" class="hidden">
+    <div class="status">
+      <div class="stat"><span class="k">Round</span><span class="v" id="s-round">1</span></div>
+      <div class="stat"><span class="k">Remaining</span><span class="v" id="s-left">0</span></div>
+      <div class="stat"><span class="k">To review</span><span class="v" id="s-retry">0</span></div>
+      <div class="stat"><span class="k">First try</span><span class="v acc" id="s-acc">—</span></div>
+    </div>
+    <div class="progress"><i id="bar" style="width:0%"></i></div>
+    <div class="progress-cap"><span id="q-count">Question 1 of 1</span></div>
+
+    <div class="banner" id="banner"></div>
+
+    <div class="card pad">
+      <div class="qtag">
+        <span class="badge" id="q-badge">#1</span>
+        <span class="model" id="q-topic">Topic</span>
+        <span class="objtag" id="q-obj"></span>
+        <span class="hytag hidden" id="q-hy">★ likely on exam</span>
+      </div>
+      <h2 class="qprompt" id="q-prompt">—</h2>
+      <div class="choices" id="choices"></div>
+      <div id="confbox" class="hidden">
+        <div class="cq">How sure are you?</div>
+        <div class="ch">Answer locked. Rate it before you see the result — a miss you were <i>sure</i> about is the most
+          correctable error there is, and this is how the trainer finds those.</div>
+        <div class="confrow">
+          <button type="button" data-conf="sure">Sure<small>I know this</small></button>
+          <button type="button" data-conf="think">Think so<small>fairly confident</small></button>
+          <button type="button" data-conf="guess">Guess<small>coin flip</small></button>
+        </div>
+      </div>
+      <div class="explain hidden" id="explain"></div>
+      <div class="btnrow" style="margin-top:16px">
+        <button class="btn btn-primary hidden" id="next" type="button">Next →</button>
+      </div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn btn-ghost" id="quit">End &amp; restart</button>
+    </div>
+  </section>
+
+  <!-- DONE -->
+  <section id="done" class="hidden">
+    <div class="card done">
+      <div class="big">🔁</div>
+      <h2 id="done-h">Review cleared</h2>
+      <p id="done-p"></p>
+      <div class="scoreline">
+        <div class="s"><span class="k">Questions</span><span class="v" id="d-items">0</span></div>
+        <div class="s"><span class="k">First try</span><span class="v" id="d-first">0</span></div>
+        <div class="s"><span class="k">Rounds</span><span class="v" id="d-rounds">0</span></div>
+      </div>
+      <div class="topicscore" id="topicscore"></div>
+      <div id="calibration"></div>
+      <div class="hynote" style="margin-top:18px"><span>📅</span><span><b>Now stop.</b> Coming back tomorrow with the
+        next batch beats another hour today — that is the whole point of spacing. Reload this page to see what is due
+        next.</span></div>
+      <div class="btnrow" style="justify-content:center">
+        <button class="btn btn-primary hidden" id="retry-missed">Drill the ones you missed</button>
+        <button class="btn btn-ghost" id="again">Back to the queue</button>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">Spacing + successive relearning · <a href="method.html" style="color:inherit">how this trainer is built</a></p>
+</div>
+
+<script src="objectives_data.js"></script>
+<script src="exam_a.js"></script>
+<script src="exam_b.js"></script>
+<script src="histology_data.js"></script>
+<script src="srs.js"></script>
+<script>
+/* The whole pool, ids prefixed so each item shares its record with its home page. */
+const POOL = [
+  ...EXAM_A.map(q => ({...q, n:"A"+q.n})),
+  ...EXAM_B.map(q => ({...q, n:"B"+q.n})),
+  ...HISTO .map(q => ({...q, n:"H"+q.n})),
+];
+
+const due = SRS.queue(POOL);
+EXAM_CFG = { bank: due, form:"" };
+
+(() => {
+  const s = SRS.summary(POOL);
+  const cells = [
+    ["Due now", due.length, due.length ? "worst-first: confident misses, then most overdue" : "nothing waiting", "var(--accent)"],
+    ["Retired", s.retired, `${SRS.CRITERION} correct retrievals on ${SRS.CRITERION} different days`, "var(--correct)"],
+    ["In progress", s.learning, "seen, not yet at criterion", "var(--t-cardio)"],
+    ["Never seen", s.unseen, "still untouched in the bank", "var(--faint)"],
+  ];
+  document.getElementById("srsgrid").innerHTML = cells.map(([k,v,sub,c]) =>
+    `<div class="srscell" style="--tc:${c}"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${sub}</span></div>`).join("");
+
+  /* exam date */
+  const input = document.getElementById("examdate");
+  const cfg = SRS.cfg();
+  if (cfg.exam) input.value = cfg.exam;
+  const hint = document.getElementById("datehint");
+  function paintHint(){
+    const d = SRS.daysToExam();
+    if (d === null) return;
+    const gaps = [0,1,2,3].map(b => SRS.gapDays(b));
+    hint.innerHTML = d === 0
+      ? `<b>Exam is today.</b> Everything cycles daily now — do the queue, then the <a href="likely.html">starred set</a>.`
+      : `<b>${d} day${d>1?"s":""} to go.</b> Gaps for this window: ${[...new Set(gaps)].join(" → ")} day(s), capped so no
+         review lands after the exam.`;
+  }
+  paintHint();
+  input.onchange = () => { SRS.setCfg({ exam: input.value || null }); location.reload(); };
+
+  /* nothing due → say so plainly and don't pretend there's a session to run */
+  const note = document.getElementById("queue-note");
+  const btn  = document.getElementById("startBtn");
+  if (!due.length){
+    note.innerHTML = `<div class="notebox" style="margin-top:14px"><span>✅</span><span><b>Nothing is due right now.</b>
+      ${s.retired === s.total
+        ? "Every question in the bank has retired — you're done. Sit a full form cold to prove it."
+        : "Come back when the next batch comes due, or go take a full form: " +
+          `<a href="exam-a.html">Form A</a> · <a href="exam-b.html">Form B</a> · <a href="likely.html">the starred set</a>.`}
+      </span></div>`;
+    btn.disabled = true;
+    btn.textContent = "Nothing due — come back later";
+    btn.classList.remove("btn-primary"); btn.classList.add("btn-ghost");
+  } else {
+    btn.textContent = `Start today's review — ${due.length} due`;
+    /* only claim "served first" about confident misses that are actually in today's queue */
+    const rec = SRS.load();
+    const cwDue = due.filter(q => (rec[q.n]||{}).cw).length;
+    const cwLater = s.confidentMisses - cwDue;
+    if (cwDue) note.innerHTML = `<div class="hynote" style="margin-top:14px"><span>★</span><span>
+      <b>${cwDue} item${cwDue>1?"s":""} in this queue you missed while feeling sure.</b> They're served first — the
+      errors most worth fixing, and the ones most likely to come back if you don't.</span></div>`;
+    else if (cwLater) note.innerHTML = `<div class="notebox" style="margin-top:14px"><span>★</span><span>
+      <b>${cwLater} confident miss${cwLater>1?"es":""} already scheduled</b> for a later day — they'll be first in the
+      queue the moment they come due.</span></div>`;
+  }
+})();
+</script>
+<script src="engine.js"></script>
+</body>
+</html>

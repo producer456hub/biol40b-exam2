@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIOL 40B — Lecture Exam 2 · How this trainer is built</title>
+<meta name="description" content="The memory-retention research this BIOL 40B trainer is built on — retrieval practice, distributed practice, successive relearning, interleaving, hypercorrection — and exactly which feature implements each finding.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="kicker">BIOL 40B · Lecture Exam 2</span>
+      <h1>How this trainer is built</h1>
+    </div>
+    <button class="iconbtn" id="theme" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
+  </header>
+
+  <nav class="pagenav" aria-label="Sections">
+    <a href="index.html" class="pnav"><span class="ic">🏠</span> Hub</a>
+    <a href="exam-a.html" class="pnav"><span class="ic">📝</span> Exam A</a>
+    <a href="exam-b.html" class="pnav"><span class="ic">📄</span> Exam B</a>
+    <a href="likely.html" class="pnav"><span class="ic">★</span> Likely</a>
+    <a href="review.html" class="pnav"><span class="ic">🔁</span> Review</a>
+    <a href="drill.html" class="pnav"><span class="ic">🎯</span> Topic drill</a>
+    <a href="histology.html" class="pnav"><span class="ic">🔬</span> Histology</a>
+    <a href="objectives.html" class="pnav"><span class="ic">🧭</span> Objectives</a>
+    <a href="cram.html" class="pnav"><span class="ic">⚡</span> Cram</a>
+  </nav>
+
+  <section class="card pad">
+    <div class="prose">
+      <p style="color:var(--ink)">Every mechanic in this trainer traces to a specific, well-replicated finding about how
+        memory actually works. This page names the finding, then names the feature that implements it — so if something
+        here feels annoying or inefficient, you can see why it's deliberate.</p>
+
+      <div class="utility">
+        <span class="util high">HIGH utility · practice testing</span>
+        <span class="util high">HIGH utility · distributed practice</span>
+        <span class="util low">LOW utility · rereading</span>
+        <span class="util low">LOW utility · highlighting</span>
+      </div>
+      <p class="cite">Of the ten study techniques Dunlosky and colleagues reviewed for <i>Psychological Science in the
+        Public Interest</i> (2013), only two earned a "high utility" rating: practice testing and distributed practice.
+        Rereading, highlighting and summarising — what most students actually do — came out low. This whole site is
+        built out of the two that won.</p>
+
+      <h2>1. Testing is not measurement. It's the studying.</h2>
+      <p>Roediger and Karpicke's work found that <b>repeated studying produced no benefit for delayed recall, while
+        repeated testing produced a large one</b> — even though the re-readers had far more exposure to the material.
+        Students consistently don't believe this, which is why most people reread instead of self-quizzing.</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">The trainer is 180 questions and no reading passages. Even the
+        <a href="cram.html">cram sheet</a> hides its answers behind a tap, so a "review" is still an act of retrieval
+        rather than a re-read.</span></span></div>
+
+      <h2>2. Getting it right once is not learning it.</h2>
+      <p>Rawson and Dunlosky's <b>successive relearning</b> studies combine retrieval practice with spacing: you
+        retrieve an item correctly to criterion, and then you do it <i>again</i> in later, separate sessions. In a real
+        introductory course, concepts trained that way beat the ones students studied on their own by
+        <b>more than a full letter grade</b> on the actual course exam. It has since been replicated in a difficult
+        upper-level course and in K–12 classrooms.</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">A question does not retire until you have answered it correctly on
+        <b>three different days</b>. The counter is on every explanation card ("retrieved correctly 2/3 sessions"), and
+        <a href="review.html">Spaced review</a> only serves items that have not hit criterion yet. Getting something
+        right today advances it one step — it does not remove it.</span></span></div>
+
+      <h2>3. Gaps beat cramming — and the right gap depends on your deadline.</h2>
+      <p>Cepeda and colleagues synthesised 839 assessments of distributed practice across 317 experiments, then mapped
+        the optimum directly: <b>the best gap between study sessions is roughly 10–20% of how long you need to remember
+        the material</b> (about 20% at a delay of a few weeks, falling toward 5% at a year).</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">Review gaps expand 1 → 3 → 7 → 16 days. Enter your exam date on the
+        <a href="review.html">review page</a> and every gap is recomputed as ~20% of the days you have left, then
+        clamped so no review is ever scheduled <i>after</i> the exam. Two weeks out, that's a ~3-day gap; three days
+        out, it's daily.</span></span></div>
+
+      <h2>4. Mixing topics feels worse and works better.</h2>
+      <p>In Taylor and Rohrer's experiments, <b>interleaving practice hurt performance during the practice session and
+        then doubled scores on a test the next day.</b> The mechanism matters for A&amp;P: interleaving specifically
+        improves your ability to work out <i>which</i> concept a question is about — exactly the skill a mixed
+        multiple-choice exam tests, where the hard part is telling preload from afterload, or stenosis from
+        incompetence, when nobody tells you which chapter you're in.</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">Both forms, the starred set and the review queue are shuffled across all five topics every
+        time. The <a href="drill.html">Topic drill</a> is the one blocked-practice tool on the site — useful for
+        repairing a weak area, but it should never be the last thing you do before the exam. Finish on a mixed
+        form.</span></span></div>
+
+      <h2>5. The answers you were sure about — and wrong about — are gold.</h2>
+      <p>Butterfield and Metcalfe's <b>hypercorrection effect</b>: errors committed with <i>high</i> confidence are
+        corrected better than low-confidence errors, because the mismatch between what you expected and what you got
+        makes you attend hard to the feedback. The catch from the follow-up work is that high-confidence errors also
+        tend to <b>return</b> after a week — so one correction isn't enough, they need re-testing.</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">You rate confidence <b>before</b> the answer is revealed. A miss you marked "sure" gets
+        flagged on the spot, counted in the calibration panel at the end of the run, and pushed to the
+        <b>front of the review queue</b> — because it will come back if you leave it. That is also why the trainer asks
+        you to say the correction out loud instead of just reading it.</span></span></div>
+
+      <h2>6. Feedback, immediately and specifically.</h2>
+      <p>The hypercorrection benefit depends on getting <b>prompt, specific</b> correction — not just "wrong."</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">Every question reveals the correct choice, restates it in full, explains <i>why</i> it's
+        right, and names the learning objective it came from — on the same screen, one tap after you answer.</span></span></div>
+
+      <h2>7. Produce the explanation; don't just recognise it.</h2>
+      <p>Elaborative interrogation and self-explanation — asking yourself <i>why</i> a fact is true — earned moderate
+        support in the same review, and they cost nothing to add to a quiz.</p>
+      <div class="doesit"><span>✅</span><span><span class="di-t">what that means here</span>
+        <span class="di-b">After a miss the trainer holds you for one beat and asks you to say why the right answer is
+        right in your own words before moving on. The <a href="cram.html">cram sheet</a> is built cue-first for the same
+        reason: you generate the answer, then check it.</span></span></div>
+
+      <h2>What this trainer deliberately does NOT do</h2>
+      <ul>
+        <li><b>No highlighting, no summarising, no rereading long text.</b> All three rated low utility. There is
+          almost no prose here to reread on purpose.</li>
+        <li><b>Only one mnemonic.</b> Keyword mnemonics rated low utility for durable learning and are narrow in scope.
+          The one mnemonic on the cram sheet ("Never let monkeys eat bananas") is there because the <i>instructor</i>
+          put it on a slide, which makes it a testable item rather than a study strategy.</li>
+        <li><b>No streaks, no XP, no daily flame.</b> Nothing here rewards you for showing up twice in one day when the
+          evidence says to come back tomorrow instead.</li>
+      </ul>
+
+      <h2>So what should you actually do?</h2>
+      <ul>
+        <li><b>Tonight:</b> sit <a href="exam-a.html">Form A</a> cold, confidence rating on. Clear every miss.</li>
+        <li><b>Then:</b> check <a href="objectives.html">Objective Scope</a>, and <a href="drill.html">drill</a> only
+          the topics that came back weak.</li>
+        <li><b>Every day after:</b> open <a href="review.html">Spaced review</a> and clear what's due. It'll be short.
+          That's the point — and it's the single highest-value habit on this list.</li>
+        <li><b>2–3 days out:</b> sit <a href="exam-b.html">Form B</a> cold as a dress rehearsal.</li>
+        <li><b>Night before:</b> the <a href="likely.html">starred set</a>, then cues-only on the cram sheet. Sleep.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul style="font-size:13.5px">
+        <li>Dunlosky, J., Rawson, K. A., Marsh, E. J., Nathan, M. J., &amp; Willingham, D. T. (2013).
+          Improving students' learning with effective learning techniques.
+          <i>Psychological Science in the Public Interest</i>, 14(1), 4–58.
+          <a href="https://journals.sagepub.com/doi/abs/10.1177/1529100612453266">sagepub</a> ·
+          <a href="https://pubmed.ncbi.nlm.nih.gov/26173288/">PubMed</a></li>
+        <li>Roediger, H. L., &amp; Karpicke, J. D. (2006). The power of testing memory.
+          <i>Perspectives on Psychological Science</i>.
+          <a href="http://psychnet.wustl.edu/memory/wp-content/uploads/2018/04/Roediger-Karpicke-2006_PPS.pdf">PDF</a>
+          — and Karpicke &amp; Roediger (2008), <i>Science</i>.
+          <a href="http://psychnet.wustl.edu/memory/wp-content/uploads/2018/04/Karpicke-Roediger-2008_Sci.pdf">PDF</a></li>
+        <li>Rawson, K. A., &amp; Dunlosky, J. (2022). Successive relearning: an underexplored but potent technique.
+          <i>Current Directions in Psychological Science</i>.
+          <a href="https://journals.sagepub.com/doi/full/10.1177/09637214221100484">sagepub</a>
+          — replication in a difficult course: Janes et al. (2020), <i>Applied Cognitive Psychology</i>.
+          <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/acp.3699">Wiley</a></li>
+        <li>Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., &amp; Rohrer, D. (2006). Distributed practice in verbal
+          recall tasks: a review and quantitative synthesis. <i>Psychological Bulletin</i>.
+          <a href="https://augmentingcognition.com/assets/Cepeda2006.pdf">PDF</a>
+          — and Cepeda et al. (2008), Spacing effects in learning: a temporal ridgeline of optimal retention,
+          <i>Psychological Science</i>. <a href="https://laplab.ucsd.edu/articles/Cepeda%20et%20al%202008_psychsci.pdf">PDF</a></li>
+        <li>Taylor, K., &amp; Rohrer, D. (2010). The effects of interleaved practice.
+          <i>Applied Cognitive Psychology</i>, 24, 837–848.
+          <a href="http://uweb.cas.usf.edu/~drohrer/pdfs/Taylor&amp;Rohrer2010ACP.pdf">PDF</a></li>
+        <li>Butterfield, B., &amp; Metcalfe, J. (2001, 2006). Errors committed with high confidence are hypercorrected.
+          <a href="https://www.researchgate.net/publication/11641193_Errors_Committed_with_High_Confidence_Are_Hypercorrected">overview</a>
+          — persistence and return of high-confidence errors: Metcalfe &amp; Finn (2011),
+          <i>Psychonomic Bulletin &amp; Review</i>.
+          <a href="https://link.springer.com/article/10.3758/s13423-011-0173-y">Springer</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="foot">Study aid · built from the Exam 2 lecture decks · not for distribution</p>
+</div>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const saved = localStorage.getItem("b2-theme");
+  if (saved) root.setAttribute("data-theme", saved);
+  document.getElementById("theme").onclick = () => {
+    const cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");
+    const nxt = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", nxt); localStorage.setItem("b2-theme", nxt);
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIOL 40B — Lecture Exam 2 · Cram sheet</title>
+<meta name="description" content="Tap-to-reveal cram sheet for BIOL 40B Lecture Exam 2: every high-yield fact from blood, heart anatomy, cardiac physiology, blood vessels and the respiratory system, grouped by learning objective.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="kicker">BIOL 40B · Lecture Exam 2</span>
+      <h1>Cram sheet</h1>
+    </div>
+    <button class="iconbtn" id="theme" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
+  </header>
+
+  <nav class="pagenav" aria-label="Sections">
+    <a href="index.html" class="pnav"><span class="ic">🏠</span> Hub</a>
+    <a href="exam-a.html" class="pnav"><span class="ic">📝</span> Exam A</a>
+    <a href="exam-b.html" class="pnav"><span class="ic">📄</span> Exam B</a>
+    <a href="likely.html" class="pnav"><span class="ic">★</span> Likely</a>
+    <a href="review.html" class="pnav"><span class="ic">🔁</span> Review</a>
+    <a href="drill.html" class="pnav"><span class="ic">🎯</span> Topic drill</a>
+    <a href="histology.html" class="pnav"><span class="ic">🔬</span> Histology</a>
+    <a href="objectives.html" class="pnav"><span class="ic">🧭</span> Objectives</a>
+    <a href="cram.html" class="pnav on" aria-current="page"><span class="ic">⚡</span> Cram</a>
+  </nav>
+
+  <section class="card pad" id="cram-intro">
+    <p class="hero-note">Everything worth having in your head the morning of the exam, distilled from both question
+      banks and the five decks and grouped by objective. The <b>cue stays visible and the answer is hidden</b> — so
+      say it out loud first, then tap. That's recall practice; re-reading isn't.
+      <span class="mono" id="cram-total"></span></p>
+
+    <div class="cram-tools">
+      <button class="btn btn-ghost" id="staronly">★ Likely-only</button>
+      <button class="btn btn-ghost" id="expand">Expand all sections</button>
+      <button class="btn btn-ghost" id="revealall">Reveal all answers</button>
+      <button class="btn btn-ghost" id="printbtn">Print / save as PDF</button>
+    </div>
+    <div class="hynote"><span>★</span><span>Rows marked <b>★</b> are the facts I'd bet on being tested — same
+      prediction as the <a href="likely.html">Likely</a> question set. Use <b>★ Likely-only</b> for the last pass the
+      night before, and the full sheet before that.</span></div>
+
+    <div class="cram-how">
+      <b>How to use it</b>
+      <ol>
+        <li>Read the cue and answer it <b>out loud</b> before you tap.</li>
+        <li>Tap to check. If you were wrong, say the correct answer out loud once.</li>
+        <li>Work one section at a time, then go take that topic in the <a href="drill.html">Topic drill</a>.</li>
+        <li>Night before: print it, and only look at the cues.</li>
+      </ol>
+    </div>
+
+    <div class="cram-toc" id="cram-toc"></div>
+  </section>
+
+  <div id="cramsecs"></div>
+
+  <p class="foot">Study aid · distilled from the Exam 2 lecture decks · not for distribution · <a href="method.html" style="color:inherit">how this trainer is built</a></p>
+</div>
+
+<script src="objectives_data.js"></script>
+<script src="cram_data.js"></script>
+<script src="cram.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIOL 40B — Lecture Exam 2 · Objective Scope</title>
+<meta name="description" content="Every BIOL 40B Exam 2 learning objective, which practice questions test it, and a live mastery meter built from your answers — so you can see exactly what is solid and what still needs work.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="kicker">BIOL 40B · Lecture Exam 2</span>
+      <h1>Objective Scope</h1>
+    </div>
+    <button class="iconbtn" id="theme" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
+  </header>
+
+  <nav class="pagenav" aria-label="Sections">
+    <a href="index.html" class="pnav"><span class="ic">🏠</span> Hub</a>
+    <a href="exam-a.html" class="pnav"><span class="ic">📝</span> Exam A</a>
+    <a href="exam-b.html" class="pnav"><span class="ic">📄</span> Exam B</a>
+    <a href="likely.html" class="pnav"><span class="ic">★</span> Likely</a>
+    <a href="review.html" class="pnav"><span class="ic">🔁</span> Review</a>
+    <a href="drill.html" class="pnav"><span class="ic">🎯</span> Topic drill</a>
+    <a href="histology.html" class="pnav"><span class="ic">🔬</span> Histology</a>
+    <a href="objectives.html" class="pnav on" aria-current="page"><span class="ic">🧭</span> Objectives</a>
+    <a href="cram.html" class="pnav"><span class="ic">⚡</span> Cram</a>
+  </nav>
+
+  <section class="card pad">
+    <p class="hero-note">This is the whole scope of the exam as the instructor laid it out — every objective from the
+      objectives handout and from the objectives slide of each deck. <b>Both forms cover every objective on this
+      page</b>, so either one on its own gets you complete coverage. The meters fill in as you answer: an objective
+      counts as <b>cleared</b> when the last time you saw each of its questions, you got it right — and as
+      <b>retired</b> once you have retrieved it correctly on three separate days
+      (<a href="method.html">why three</a>).</p>
+    <div class="snapshot" id="snapshot"></div>
+    <div class="legend">
+      <span><b>not started</b> — no question answered yet</span>
+      <span>·</span><span><b>in progress</b> — some still unseen</span>
+      <span>·</span><span><b>needs work / shaky</b> — seen them all, still missing some</span>
+      <span>·</span><span><b>solid</b> — all of them right most recently</span>
+      <span>·</span><span><b>retired</b> — right on 3 separate days, the mastery criterion</span>
+      <span>·</span><span><b>★</b> — a question predicted to be on the exam</span>
+    </div>
+    <div class="btnrow">
+      <a class="btn btn-primary" href="drill.html" style="text-align:center;text-decoration:none">Drill a weak topic</a>
+      <button class="btn btn-ghost" id="reset">Reset progress</button>
+    </div>
+  </section>
+
+  <div id="objsecs"></div>
+
+  <p class="foot">Objectives verbatim from the course handout &amp; deck objective slides · study aid, not for distribution · <a href="method.html" style="color:inherit">how this trainer is built</a></p>
+</div>
+
+<script src="objectives_data.js"></script>
+<script src="exam_a.js"></script>
+<script src="exam_b.js"></script>
+<script src="histology_data.js"></script>
+<script src="srs.js"></script>
+<script src="objectives.js"></script>
+</body>
+</html>
