@@ -26,6 +26,8 @@ const CRAM = [
   {hy:1, c:`Erythropoiesis — rate, site, controller`, a:`~3 million new RBCs per second, in RED BONE MARROW, controlled by ERYTHROPOIETIN (EPO) from the KIDNEYS in response to low blood O₂.`},
   {c:`Hemocytoblast → circulating RBC timeline`, a:`Hemocytoblast → reticulocyte ~15 days; reticulocyte matures in the bloodstream ~2 more days.`},
   {c:`Lifespan and fate`, a:`~120 days, then destroyed by the SPLEEN or LIVER.`},
+  {hy:1, c:`RBC destruction — what happens to the GLOBIN and the IRON`, a:`A macrophage (spleen, liver or red bone marrow) phagocytizes the cell. GLOBIN → amino acids, REUSED for protein synthesis. HEME → IRON, bound to TRANSFERRIN and carried back to the red bone marrow for new RBCs.`},
+  {hy:1, c:`RBC destruction — the BILIRUBIN path, all the way out`, a:`Heme → BILIVERDIN → BILIRUBIN → liver → BILE → small intestine → UROBILINOGEN → STERCOBILIN in the FECES, and UROBILIN via the kidney into the URINE.`},
   {c:`Dietary requirements for erythropoiesis`, a:`Amino acids, lipids, carbohydrates + IRON (for heme) + VITAMIN B₁₂ and FOLIC ACID (for the DNA synthesis of rapidly dividing cells).`},
 ]},
 
@@ -75,6 +77,7 @@ const CRAM = [
   {c:`Restoring blood volume after major loss`, a:`Normal saline or a multiple-electrolyte solution (RINGER'S) that mimics plasma electrolytes. Restores circulation but does NOT restore oxygen-carrying capacity.`},
   {c:`Whole blood vs packed RBCs`, a:`Whole blood only for rapid, substantial loss. PRBCs (plasma and WBCs removed) are preferred to restore O₂-carrying capacity. Shelf life ~35 days.`},
   {hy:1, c:`The ABO rule`, a:`You carry ANTIBODIES against the antigen you LACK. Type A cells + anti-B plasma. Type B cells + anti-A plasma. Type AB = both antigens, NEITHER antibody. Type O = neither antigen, BOTH antibodies.`},
+  {hy:1, c:`Reading the typing plate (agglutination)`, a:`Clumping = that antigen IS present. Clumps with anti-A only → TYPE A. Anti-B only → TYPE B. BOTH clump → TYPE AB (universal recipient, neither antibody). NEITHER clumps → TYPE O (both antibodies).`},
   {c:`Why typing matters`, a:`Transfusion reactions — agglutination of the donated cells by recipient antibodies — can be FATAL.`},
 ]},
 
@@ -143,6 +146,9 @@ const CRAM = [
   {hy:1, c:`Phase 3 — isovolumetric relaxation (early diastole)`, a:`Ventricles relax; BACKFLOW of blood in the aorta and pulmonary trunk closes the SEMILUNAR valves. Atria are refilling; when atrial pressure exceeds ventricular, AV valves open and the cycle repeats.`},
   {c:`What opens and closes any valve`, a:`Nothing but the PRESSURE DIFFERENCE across it. Valves are passive one-way doors — they ensure unidirectional flow.`},
   {hy:1, c:`The two heart sounds`, a:`"LUB" (S1) = AV valves CLOSING — start of ventricular SYSTOLE. "DUP" (S2) = semilunar valves CLOSING — start of ventricular DIASTOLE. Sounds come from valves closing, never opening.`},
+  {hy:1, c:`EDV, ESV and stroke volume — the numbers off his graph`, a:`END-DIASTOLIC VOLUME ≈ 135 mL (fullest, end of filling). END-SYSTOLIC VOLUME ≈ 65 mL (what's left after ejection). SV = EDV − ESV = 70 mL/beat — the same 70 mL used in his cardiac output example. Ejection fraction ≈ 52%.`},
+  {hy:1, c:`Dicrotic notch`, a:`The small bump in the AORTIC pressure trace when ventricular pressure drops below aortic and blood surges back to slam the aortic valve shut. That closure = S2 = start of ventricular diastole.`},
+  {hy:1, c:`Aortic vs ventricular pressure across the cycle`, a:`Aorta sits ~80 mmHg in diastole and peaks ~120 in systole. The ventricle swings from near 0 up past aortic pressure (valve opens → ejection) and back down (valve shuts → dicrotic notch).`},
 ]},
 
 { id:"output", topic:"cardio", title:"14 · Cardiac output, stroke volume & heart rate", obj:"C6–C9", items:[
@@ -239,12 +245,15 @@ const CRAM = [
   {hy:1, c:`Quiet exhalation`, a:`Muscles RELAX → thoracic volume DECREASES → intrapulmonary pressure RISES above atmospheric → air flows OUT. PASSIVE — driven by elastic recoil.`},
   {hy:1, c:`The four lung VOLUMES`, a:`TIDAL VOLUME (TV) — a normal quiet breath. INSPIRATORY RESERVE (IRV) — extra you can inhale beyond it. EXPIRATORY RESERVE (ERV) — extra you can force out after it. RESIDUAL VOLUME (RV) — what stays no matter what, so a spirometer can't measure it.`},
   {hy:1, c:`The CAPACITIES`, a:`Capacities are combinations of volumes. VITAL CAPACITY = TV + IRV + ERV — the total exchangeable air. TOTAL LUNG CAPACITY = VC + RV.`},
+  {hy:1, c:`The spirogram NUMBERS (male values)`, a:`TV 500 · IRV 3,100 · ERV 1,200 · RV 1,200 mL. So VC = 500+3,100+1,200 = 4,800 mL and TLC = 4,800+1,200 = 6,000 mL.`},
+  {hy:1, c:`Inspiratory capacity & functional residual capacity`, a:`INSPIRATORY CAPACITY = TV + IRV = 3,600 mL (most you can breathe in starting from a normal exhalation). FUNCTIONAL RESIDUAL CAPACITY = ERV + RV = 2,400 mL (what's still in there after a normal exhalation).`},
   {c:`Spirometry & minute ventilation`, a:`SPIROMETRY provides the measurements used to assess lung function. MINUTE VENTILATION = the total volume of air inhaled and exhaled each minute.`},
 ]},
 
 { id:"gas-exchange", topic:"resp", title:"23 · Gas exchange & gas transport", obj:"R8–R9", items:[
   {c:`Partial pressure`, a:`Air is a mixture (nitrogen, oxygen, water vapour, CO₂, others), and each gas contributes part of the total pressure — its PARTIAL PRESSURE.`},
   {hy:1, c:`The rule that governs all gas movement`, a:`In both external and internal respiration, O₂ and CO₂ move from AREAS OF HIGHER partial pressure to AREAS OF LOWER partial pressure — by diffusion.`},
+  {hy:1, c:`The partial pressure NUMBERS at every step`, a:`ATMOSPHERIC P_O₂ 159 / P_CO₂ 0.3 · ALVEOLAR 105 / 40 · blood ARRIVING at the lungs (deoxygenated) 40 / 45 · blood LEAVING the lungs (oxygenated) 100 / 40 · TISSUE CELLS 40 / 45. O₂ steps downhill the whole way; CO₂ runs the opposite direction.`},
   {c:`External respiration`, a:`Pulmonary gas exchange — between ALVEOLAR AIR and the pulmonary blood capillaries.`},
   {c:`Internal respiration`, a:`Systemic gas exchange — between SYSTEMIC TISSUE CAPILLARIES and the tissue cells.`},
   {hy:1, c:`Oxygen transport`, a:`About 98.5% of blood O₂ is BOUND TO HEMOGLOBIN in the red cells, as OXYHEMOGLOBIN.`},

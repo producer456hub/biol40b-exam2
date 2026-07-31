@@ -113,4 +113,24 @@ answering it on its home page.
 
 ---
 
+## Slide-figure pass
+
+Several slides in the decks are **image-only** — no extractable text. Those images were pulled out of
+the `pptx` files and read, and the banks were corrected against them rather than against general A&P
+knowledge. What that changed:
+
+| Figure | What it pinned down |
+|--------|--------------------|
+| Blood typing plate (agglutination) | Reading the test: clumps with anti-A only → A, anti-B only → B, both → AB, neither → O |
+| Fate/destruction of erythrocytes | Globin → amino acids; heme → iron on **transferrin** back to marrow, and biliverdin → bilirubin → liver → bile → gut → **stercobilin** (feces) / **urobilin** (urine) |
+| Cardiac-cycle (Wiggers) diagram | **EDV ≈ 135 mL, ESV ≈ 65 mL → SV = 70 mL** (the same 70 in his CO example), ejection fraction ≈ 52%, and the **dicrotic notch** |
+| Spirogram | The actual volumes — TV 500, IRV 3,100, ERV 1,200, RV 1,200 → **VC 4,800, TLC 6,000** — plus inspiratory capacity (3,600) and functional residual capacity (2,400) |
+| Partial-pressure figure | **Atmospheric 159/0.3 · alveolar 105/40 · venous blood 40/45 · arterial 100/40 · tissue 40/45** |
+
+Five questions in each form were rewritten to carry this figure-grounded content (all now starred), and
+nine cram rows were added. Both forms are still exactly 80 questions and still cover all 47 objectives
+individually.
+
+---
+
 *Study aid built from the course lecture decks — not for distribution.*
