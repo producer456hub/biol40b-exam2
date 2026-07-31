@@ -16,12 +16,12 @@ comes back round after round until you have cleared the whole set.
 | `index.html` | Hub — progress snapshot, what's due, suggested run |
 | `exam-a.html` | **Form A** — a full 80-question exam |
 | `exam-b.html` | **Form B** — a second, different 80 over the same objectives |
-| `likely.html` | **★ Most likely on the exam** — the 81 predicted high-yield questions |
+| `likely.html` | **★ Most likely on the exam** — the 91 predicted high-yield questions |
 | `review.html` | **Spaced review** — today's due queue, exam-date aware |
 | `drill.html` | Topic drill — one topic at a time out of the full 180-question pool |
 | `histology.html` | Histology mini-round — 20 microscopic-anatomy questions |
 | `objectives.html` | Objective Scope — all 47 objectives, coverage and mastery per objective |
-| `cram.html` | Cram sheet — 186 tap-to-reveal facts in 24 sections, ★91 starred, printable |
+| `cram.html` | Cram sheet — 195 tap-to-reveal facts in 24 sections, ★100 starred, printable |
 | `method.html` | The retention research every mechanic here is built on, with sources |
 
 ### Coverage
@@ -42,7 +42,7 @@ slide of each deck. Enforced by the bank check — see *Data integrity* below.
 
 ### The ★ "likely on the exam" prediction
 
-81 of the 180 questions (and 91 of the 186 cram rows) are starred as predicted high-yield, and the star
+91 of the 180 questions (and 100 of the 195 cram rows) are starred as predicted high-yield, and the star
 shows up everywhere — in the question header, on the Objectives page, on the cram sheet, and as its own
 mode. The starred set covers all 47 objectives.
 
@@ -93,7 +93,7 @@ evidence says to come back tomorrow.
 | `srs.js` | Spacing + mastery scheduler (gaps, criterion, due queue, exam-date compression) |
 | `exam_a.js` / `exam_b.js` | The two 80-question banks |
 | `histology_data.js` | 20-question histology round |
-| `cram_data.js` | 186 cram facts in 24 objective-grouped sections |
+| `cram_data.js` | 195 cram facts in 24 objective-grouped sections |
 | `objectives_data.js` | The 47 objectives + the topic/colour map |
 | `objectives.js` / `cram.js` / `hub.js` | Page renderers |
 
