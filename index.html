@@ -3,110 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BIOL 40B — Lecture Exam 2 Trainer</title>
-<meta name="description" content="Practice trainer for the BIOL 40B lecture Exam 2: two full 80-question multiple-choice exams (four distractors each) over blood, heart anatomy, cardiac physiology, blood vessels and the respiratory system, plus a predicted high-yield set, a spaced-repetition review queue, a histology round, an objective-coverage tracker and a cram sheet.">
-<link rel="stylesheet" href="styles.css">
+<title>Moved — BIOL 40B Study Trainers</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://producer456hub.github.io/biol40b/exam2/index.html">
+<meta http-equiv="refresh" content="0; url=https://producer456hub.github.io/biol40b/exam2/index.html">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#120E10;color:#F0EAEC;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding:24px}
+  .box{max-width:30rem;text-align:center}
+  h1{font-size:20px;margin:0 0 10px;letter-spacing:-.01em}
+  p{color:#A79DA2;font-size:15px;line-height:1.55;margin:0 0 18px}
+  a.go{display:inline-block;background:#F0637A;color:#20090E;font-weight:700;text-decoration:none;
+    padding:13px 22px;border-radius:11px}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#F0637A}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand">
-      <span class="kicker">BIOL 40B · Lecture Exam 2</span>
-      <h1>Lecture Exam 2 — Trainer</h1>
-    </div>
-    <button class="iconbtn" id="theme" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
-  </header>
-
-  <nav class="pagenav" aria-label="Sections">
-    <a href="index.html" class="pnav on" aria-current="page"><span class="ic">🏠</span> Hub</a>
-    <a href="exam-a.html" class="pnav"><span class="ic">📝</span> Exam A</a>
-    <a href="exam-b.html" class="pnav"><span class="ic">📄</span> Exam B</a>
-    <a href="likely.html" class="pnav"><span class="ic">★</span> Likely</a>
-    <a href="review.html" class="pnav"><span class="ic">🔁</span> Review</a>
-    <a href="drill.html" class="pnav"><span class="ic">🎯</span> Topic drill</a>
-    <a href="histology.html" class="pnav"><span class="ic">🔬</span> Histology</a>
-    <a href="objectives.html" class="pnav"><span class="ic">🧭</span> Objectives</a>
-    <a href="cram.html" class="pnav"><span class="ic">⚡</span> Cram</a>
-  </nav>
-
-  <section class="card pad">
-    <p class="hero-note">Built straight from the five Exam 2 decks — <b>Blood, heart anatomy, cardiophysiology, blood
-      vessels, and the respiratory system</b> — and tagged against the instructor's learning objectives.
-      <b>Two full 80-question exams</b>, multiple choice with four distractors each, the correct answer and a short
-      explanation the moment you answer, and a loop that keeps re-serving anything you miss <b>until you have answered
-      every question correctly</b>. The scheduling underneath it is built on the retention research —
-      <a href="method.html">here's exactly what and why</a>.</p>
-    <div class="snapshot" id="snapshot"></div>
-    <div id="duebanner"></div>
-    <div class="notebox" style="margin-top:14px"><span>📚</span><span><b>Either form covers everything.</b> Form A and
-      Form B are independent 80-question exams, but each one hits every objective on its own — so one exam is full
-      coverage, and the second is a fresh test of the same scope.</span></div>
-  </section>
-
-  <div class="hubgrid">
-    <a class="hubcard" href="exam-a.html" style="--tc:var(--t-blood)">
-      <span class="hc-top"><span class="hc-ic">📝</span><span class="hc-t">Exam A</span></span>
-      <span class="hc-d">Full-length practice exam. Blood 19 · Heart 13 · Cardiac physiology 16 · Vessels 16 · Respiratory 16.</span>
-      <span class="hc-meta" id="meta-a">80 questions</span>
-    </a>
-    <a class="hubcard" href="exam-b.html" style="--tc:var(--t-cardio)">
-      <span class="hc-top"><span class="hc-ic">📄</span><span class="hc-t">Exam B</span></span>
-      <span class="hc-d">A second, different 80 over the same objectives and the same weighting. Take it after A.</span>
-      <span class="hc-meta" id="meta-b">80 questions</span>
-    </a>
-    <a class="hubcard" href="likely.html" style="--tc:var(--hy)">
-      <span class="hc-top"><span class="hc-ic">★</span><span class="hc-t">Most likely on the exam</span></span>
-      <span class="hc-d">The predicted high-yield subset — his index-card prompts, the slide numbers, the mechanism chains, the classic discriminators. Starred everywhere else too.</span>
-      <span class="hc-meta" id="meta-hy">predicted set</span>
-    </a>
-    <a class="hubcard" href="review.html" style="--tc:var(--correct)">
-      <span class="hc-top"><span class="hc-ic">🔁</span><span class="hc-t">Spaced review</span></span>
-      <span class="hc-d">Today's due queue. Expanding gaps sized to your exam date, three spaced correct retrievals before an item retires, confident misses first.</span>
-      <span class="hc-meta" id="meta-due">the habit that makes it stick</span>
-    </a>
-    <a class="hubcard" href="drill.html" style="--tc:var(--t-vessels)">
-      <span class="hc-top"><span class="hc-ic">🎯</span><span class="hc-t">Topic drill</span></span>
-      <span class="hc-d">Grind one topic at a time out of the whole 180-question pool — both forms plus histology.</span>
-      <span class="hc-meta">pick your topics</span>
-    </a>
-    <a class="hubcard" href="histology.html" style="--tc:var(--t-heart)">
-      <span class="hc-top"><span class="hc-ic">🔬</span><span class="hc-t">Histology round</span></span>
-      <span class="hc-d">Microscopic anatomy from the decks: blood smear, cardiac muscle, vessel walls, airway epithelium, alveoli.</span>
-      <span class="hc-meta" id="meta-h">20 questions</span>
-    </a>
-    <a class="hubcard" href="objectives.html" style="--tc:var(--t-resp)">
-      <span class="hc-top"><span class="hc-ic">🧭</span><span class="hc-t">Objective Scope</span></span>
-      <span class="hc-d">All 47 objectives, which questions test each one, and a live mastery meter per objective.</span>
-      <span class="hc-meta">where you actually stand</span>
-    </a>
-    <a class="hubcard" href="cram.html" style="--tc:var(--t-blood)">
-      <span class="hc-top"><span class="hc-ic">⚡</span><span class="hc-t">Cram sheet</span></span>
-      <span class="hc-d">Tap-to-reveal high-yield facts, 24 sections by objective. Cue first, answer hidden — so it's recall, not rereading. Printable.</span>
-      <span class="hc-meta">active recall, not re-reading</span>
-    </a>
-    <a class="hubcard" href="method.html" style="--tc:var(--muted)">
-      <span class="hc-top"><span class="hc-ic">🧪</span><span class="hc-t">How this is built</span></span>
-      <span class="hc-d">The retention studies behind every mechanic here — testing effect, spacing, successive relearning, interleaving, hypercorrection — and what each one changed.</span>
-      <span class="hc-meta">the evidence, with sources</span>
-    </a>
+  <div class="box">
+    <h1>This moved — it's all in one place now</h1>
+    <p>The Lecture Exam 2 Trainer now lives inside the combined <b>BIOL 40B Study Trainers</b> site, along with every other
+       trainer for the class. Taking you there&hellip;</p>
+    <a class="go" href="https://producer456hub.github.io/biol40b/exam2/index.html">Go to the trainer &rarr;</a>
+    <p style="margin-top:18px;font-size:13px">If nothing happens, open<br><code>producer456hub.github.io/biol40b/</code></p>
   </div>
-
-  <section class="card pad" style="margin-top:16px">
-    <p class="hero-note" style="margin-bottom:0"><b>Suggested run:</b> sit <a href="exam-a.html">Exam A</a> cold tonight
-      and clear every miss → check <a href="objectives.html">Objective Scope</a> and
-      <a href="drill.html">drill</a> whatever came back red → open <a href="review.html">Spaced review</a> for a few
-      minutes <i>every day</i> after that → sit <a href="exam-b.html">Exam B</a> cold 2–3 days out as the dress
-      rehearsal → night before, the <a href="likely.html">starred set</a> and cues-only on the cram sheet.</p>
-  </section>
-
-  <p class="foot">Study aid · built from the Exam 2 lecture decks · not for distribution</p>
-</div>
-
-<script src="objectives_data.js"></script>
-<script src="exam_a.js"></script>
-<script src="exam_b.js"></script>
-<script src="histology_data.js"></script>
-<script src="srs.js"></script>
-<script src="hub.js"></script>
 </body>
 </html>

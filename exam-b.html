@@ -3,133 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BIOL 40B — Lecture Exam 2 · Form B</title>
-<meta name="description" content="Form B of the BIOL 40B Lecture Exam 2 practice test: 80 multiple-choice questions on blood, heart anatomy, cardiac physiology, blood vessels and the respiratory system, with the answer and an explanation revealed after every pick and a retry loop until every question is cleared.">
-<link rel="stylesheet" href="styles.css">
+<title>Moved — BIOL 40B Study Trainers</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://producer456hub.github.io/biol40b/exam2/exam-b.html">
+<meta http-equiv="refresh" content="0; url=https://producer456hub.github.io/biol40b/exam2/exam-b.html">
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#120E10;color:#F0EAEC;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;padding:24px}
+  .box{max-width:30rem;text-align:center}
+  h1{font-size:20px;margin:0 0 10px;letter-spacing:-.01em}
+  p{color:#A79DA2;font-size:15px;line-height:1.55;margin:0 0 18px}
+  a.go{display:inline-block;background:#F0637A;color:#20090E;font-weight:700;text-decoration:none;
+    padding:13px 22px;border-radius:11px}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:#F0637A}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand">
-      <span class="kicker">BIOL 40B · Lecture Exam 2</span>
-      <h1>Form B — 80 questions</h1>
-    </div>
-    <button class="iconbtn" id="theme" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
-  </header>
-
-  <nav class="pagenav" aria-label="Sections">
-    <a href="index.html" class="pnav"><span class="ic">🏠</span> Hub</a>
-    <a href="exam-a.html" class="pnav"><span class="ic">📝</span> Exam A</a>
-    <a href="exam-b.html" class="pnav on" aria-current="page"><span class="ic">📄</span> Exam B</a>
-    <a href="likely.html" class="pnav"><span class="ic">★</span> Likely</a>
-    <a href="review.html" class="pnav"><span class="ic">🔁</span> Review</a>
-    <a href="drill.html" class="pnav"><span class="ic">🎯</span> Topic drill</a>
-    <a href="histology.html" class="pnav"><span class="ic">🔬</span> Histology</a>
-    <a href="objectives.html" class="pnav"><span class="ic">🧭</span> Objectives</a>
-    <a href="cram.html" class="pnav"><span class="ic">⚡</span> Cram</a>
-  </nav>
-
-  <!-- START -->
-  <section id="start" class="card pad">
-    <p class="hero-note">A second full-length form — <b>80 different questions, one right answer and four
-      distractors each</b>, covering the same objectives as Form A from different angles. Pick an answer and the
-      <b>correct choice plus a short explanation appear immediately</b>. Anything you miss is re-queued and comes back
-      round after round <b>until you have cleared every question</b>.</p>
-
-    <div class="speclist" id="speclist"></div>
-
-    <div class="opts" id="opts">
-      <label class="opt"><input type="radio" name="mode" id="mode-all" checked>
-        <span class="txt"><span class="lab">Full exam — all 80 questions</span>
-        <span class="sub">The real thing. Every objective is covered.</span></span></label>
-      <label class="opt"><input type="radio" name="mode" id="mode-quick" data-n="25">
-        <span class="txt"><span class="lab">Quick round — 25 random questions</span>
-        <span class="sub">A shorter shuffle when you only have a few minutes.</span></span></label>
-      <label class="opt"><input type="checkbox" id="mode-conf" checked>
-        <span class="txt"><span class="lab">Rate my confidence before each answer is revealed</span>
-        <span class="sub">Finds the misses you were sure about — the highest-value corrections. Adds one tap per question.</span></span></label>
-
-    </div>
-
-    <div class="notebox"><span>🧭</span><span>Every question is tagged to the instructor's <b>learning objectives</b>.
-      Your results feed the <b>Objectives</b> page, which shows you exactly which objectives are solid and which
-      still need work.</span></div>
-
-    <button class="btn btn-primary btn-block" id="startBtn" style="margin-top:18px">Start Form B</button>
-  </section>
-
-  <!-- EXAM -->
-  <section id="exam" class="hidden">
-    <div class="status">
-      <div class="stat"><span class="k">Round</span><span class="v" id="s-round">1</span></div>
-      <div class="stat"><span class="k">Remaining</span><span class="v" id="s-left">0</span></div>
-      <div class="stat"><span class="k">To review</span><span class="v" id="s-retry">0</span></div>
-      <div class="stat"><span class="k">First try</span><span class="v acc" id="s-acc">—</span></div>
-    </div>
-    <div class="progress"><i id="bar" style="width:0%"></i></div>
-    <div class="progress-cap"><span id="q-count">Question 1 of 1</span></div>
-
-    <div class="banner" id="banner"></div>
-
-    <div class="card pad">
-      <div class="qtag">
-        <span class="badge" id="q-badge">#1</span>
-        <span class="model" id="q-topic">Topic</span>
-        <span class="objtag" id="q-obj"></span>
-        <span class="hytag hidden" id="q-hy">★ likely on exam</span>
-      </div>
-      <h2 class="qprompt" id="q-prompt">—</h2>
-      <div class="choices" id="choices"></div>
-      <div id="confbox" class="hidden">
-        <div class="cq">How sure are you?</div>
-        <div class="ch">Answer locked. Rate it before you see the result — a miss you were <i>sure</i> about is the most
-          correctable error there is, and this is how the trainer finds those.</div>
-        <div class="confrow">
-          <button type="button" data-conf="sure">Sure<small>I know this</small></button>
-          <button type="button" data-conf="think">Think so<small>fairly confident</small></button>
-          <button type="button" data-conf="guess">Guess<small>coin flip</small></button>
-        </div>
-      </div>
-      <div class="explain hidden" id="explain"></div>
-      <div class="btnrow" style="margin-top:16px">
-        <button class="btn btn-primary hidden" id="next" type="button">Next →</button>
-      </div>
-    </div>
-
-    <div class="btnrow">
-      <button class="btn btn-ghost" id="quit">End &amp; restart</button>
-    </div>
-  </section>
-
-  <!-- DONE -->
-  <section id="done" class="hidden">
-    <div class="card done">
-      <div class="big">✓</div>
-      <h2 id="done-h">Every question cleared</h2>
-      <p id="done-p"></p>
-      <div class="scoreline">
-        <div class="s"><span class="k">Questions</span><span class="v" id="d-items">0</span></div>
-        <div class="s"><span class="k">First try</span><span class="v" id="d-first">0</span></div>
-        <div class="s"><span class="k">Rounds</span><span class="v" id="d-rounds">0</span></div>
-      </div>
-      <div class="topicscore" id="topicscore"></div>
-      <div id="calibration"></div>
-      <div class="btnrow" style="justify-content:center">
-        <button class="btn btn-primary hidden" id="retry-missed">Drill the ones you missed</button>
-        <button class="btn btn-ghost" id="again">Take it again</button>
-        <a class="btn btn-ghost" href="objectives.html" style="text-align:center;text-decoration:none">See objective coverage</a>
-      </div>
-    </div>
-  </section>
-
-  <p class="foot">Study aid · built from the Exam 2 lecture decks · not for distribution · <a href="method.html" style="color:inherit">how this trainer is built</a></p>
-</div>
-
-<script src="objectives_data.js"></script>
-<script src="exam_b.js"></script>
-<script>EXAM_CFG = { bank: EXAM_B, form:"B" };</script>
-<script src="eli5.js"></script>
-<script src="srs.js"></script>
-<script src="engine.js"></script>
+  <div class="box">
+    <h1>This moved — it's all in one place now</h1>
+    <p>The Lecture Exam 2 Trainer now lives inside the combined <b>BIOL 40B Study Trainers</b> site, along with every other
+       trainer for the class. Taking you there&hellip;</p>
+    <a class="go" href="https://producer456hub.github.io/biol40b/exam2/exam-b.html">Go to the trainer &rarr;</a>
+    <p style="margin-top:18px;font-size:13px">If nothing happens, open<br><code>producer456hub.github.io/biol40b/</code></p>
+  </div>
 </body>
 </html>
