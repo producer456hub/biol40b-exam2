@@ -80,6 +80,9 @@ skips the ones they rated low (rereading, highlighting, summarising):
   *(Butterfield & Metcalfe; Metcalfe & Finn 2011)*
 - **Self-explanation.** After a miss you're held for a beat and asked to state *why* the right answer
   is right before moving on.
+- **A second route to the same idea.** Every question carries an *Explain it like I'm 5* button —
+  a jargon-free version of the answer, on tap. If the exam-level wording didn't land, re-reading it
+  louder doesn't help; a different explanation does. All 180 questions have one (`eli5.js`).
 
 No streaks, no XP, no daily-flame mechanic — nothing here rewards showing up twice in one day when the
 evidence says to come back tomorrow.
@@ -94,6 +97,7 @@ evidence says to come back tomorrow.
 | `exam_a.js` / `exam_b.js` | The two 80-question banks |
 | `histology_data.js` | 20-question histology round |
 | `cram_data.js` | 195 cram facts in 24 objective-grouped sections |
+| `eli5.js` | Plain-language explanation for all 180 questions, keyed by question id |
 | `objectives_data.js` | The 47 objectives + the topic/colour map |
 | `objectives.js` / `cram.js` / `hub.js` | Page renderers |
 

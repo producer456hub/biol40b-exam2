@@ -162,6 +162,13 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1
 .selfex{margin-top:10px;padding:10px 12px;background:var(--surface);border:1px dashed var(--line);border-radius:9px;font-size:13.5px;line-height:1.5;color:var(--muted)}
 .selfex b{color:var(--ink)}
 
+/* "explain it like I'm 5" — an optional jargon-free second explanation */
+.eli5{margin-top:10px}
+.eli5-btn{font-family:var(--sans);font-size:13px;font-weight:650;padding:8px 13px;border-radius:999px;border:1px dashed var(--tc,var(--accent));background:transparent;color:var(--tc,var(--accent));cursor:pointer;transition:.15s}
+.eli5-btn:hover{background:var(--accent-soft);border-style:solid}
+.eli5-body{display:none;margin-top:9px;padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--tc,var(--accent));font-size:14.5px;line-height:1.6;color:var(--ink)}
+.eli5-body.show{display:block}
+
 /* calibration block on the finish card */
 .calgrid{display:flex;gap:10px;flex-wrap:wrap}
 .calcell{flex:1 1 110px;background:var(--surface-2);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:1px;text-align:left}

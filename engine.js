@@ -188,7 +188,16 @@
            say the correct answer out loud, in your own words, before you move on.</div>` : "")
       + (!correct && !confidentMiss ? `<div class="selfex">Before you tap Next: say <b>why</b> the right answer is right,
            in your own words. Reading the explanation is not the same as producing it.</div>` : "")
+      + eli5Block(FORM + q.n)
       + (objs ? `<div class="objline">Objective ${escapeHtml(objs)}<br>Retrieved correctly ${rec.succ||0}/${SRS.CRITERION} sessions · ${SRS.nextLabel(FORM + q.n)}</div>` : "");
+
+    // wire the plain-language toggle, if this question has one
+    const eb = ex.querySelector(".eli5-btn");
+    if (eb) eb.onclick = () => {
+      const panel = ex.querySelector(".eli5-body");
+      const open = panel.classList.toggle("show");
+      eb.textContent = open ? "🧸 Hide the simple version" : "🧸 Explain it like I'm 5";
+    };
 
     if(!correct){
       retry.push(q);
@@ -198,6 +207,16 @@
     $("next").classList.remove("hidden");
     $("next").focus();
     updateStatus();
+  }
+
+  /* A second, jargon-free explanation — only rendered if this question has one. */
+  function eli5Block(id){
+    const txt = (typeof ELI5 !== "undefined") && ELI5[id];
+    if (!txt) return "";
+    return `<div class="eli5">
+      <button type="button" class="eli5-btn">🧸 Explain it like I'm 5</button>
+      <div class="eli5-body">${escapeHtml(txt)}</div>
+    </div>`;
   }
 
   /* ---------------- advance ---------------- */
